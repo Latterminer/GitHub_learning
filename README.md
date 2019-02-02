@@ -1,2 +1,2 @@
 # GitHub_learning
-Learn Springboot.
+Learn computer science.
