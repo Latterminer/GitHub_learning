@@ -13,9 +13,11 @@ package question977;
 public class Solution {
     public int[] sortedSquares(int[] A) {
         int length = A.length;
+        //保存结果
         int[] result = new int[length];
         int i = 0;
         int j = length - 1;
+        //结果从尾部开始赋值
         int k = length - 1;
         while (j >= i) {
             if (Math.abs(A[j]) > Math.abs(A[i])) {
