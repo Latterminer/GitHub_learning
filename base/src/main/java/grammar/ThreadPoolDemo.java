@@ -1,5 +1,7 @@
 package grammar;
 
+import com.sun.org.apache.xpath.internal.operations.String;
+
 import java.util.concurrent.*;
 
 public class ThreadPoolDemo {
@@ -15,5 +17,9 @@ public class ThreadPoolDemo {
         }
         System.out.println(result2.get());
         threadPool.shutdown();
+
+        CompletableFuture<java.lang.String> stringCompletableFuture = CompletableFuture.supplyAsync(() -> "").exceptionally(ex->{ex.printStackTrace();
+        return "";}).thenRun();
+        stringCompletableFuture.join();
     }
 }
