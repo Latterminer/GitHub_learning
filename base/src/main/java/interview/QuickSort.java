@@ -3,6 +3,10 @@ package interview;
 import java.util.Arrays;
 
 public class QuickSort {
+    public static void quickSort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+    }
+
     public static void quickSort(int[] array, int lo, int hi) {
         if (lo > hi) {
             return;
@@ -33,7 +37,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] a = {1, 2, 4, 5, 7, 4, 5, 3, 9, 0};
         System.out.println(Arrays.toString(a));
-        quickSort(a, 0, a.length -1);
+        quickSort(a);
         System.out.println(Arrays.toString(a));
 
     }

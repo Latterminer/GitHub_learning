@@ -18,10 +18,9 @@ public class ThreadPoolDemo {
         System.out.println(result2.get());
         threadPool.shutdown();
 
-        CompletableFuture<java.lang.String> stringCompletableFuture = CompletableFuture.supplyAsync(() -> "").exceptionally(ex->{ex.printStackTrace();
-        return "";}).thenRun();
+        CompletableFuture<Void> stringCompletableFuture = CompletableFuture.supplyAsync(() -> "").exceptionally(ex->{ex.printStackTrace();
+        return "";}).thenRun(()-> System.out.println("null"));
 
-        ExecutorService executorService = new ThreadPoolExecutor(10,10, 60, TimeUnit.SECONDS, );
         stringCompletableFuture.join();
     }
 }
