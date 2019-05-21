@@ -1,0 +1,1 @@
+select e_table.name from Employee e_table left join Employee m_table on e_table.ManagerId = m_table.id where e_table.Salary > m_table.Salary
