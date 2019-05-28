@@ -1,4 +1,14 @@
-.idea
-*.iml
-*.jar
-*.class
+logs/
+**/target/
+.DS_Store
+
+### IntelliJ IDEA ###
+**/.idea
+**/*.iws
+**/*.iml
+**/*.ipr
+**/*.mvn
+**/log/
+**/.classpath
+**/.project
+**/.factorypath

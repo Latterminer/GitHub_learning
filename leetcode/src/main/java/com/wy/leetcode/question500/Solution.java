@@ -72,7 +72,8 @@ public class Solution {
                 result.add(str);
             }
         }
-        return result.toArray(String[]::new);
+        String[] resultArray = new String[result.size()];
+        return result.toArray(resultArray);
 
 //        String[] ret = new String[result.size()];
 //        for (int i = 0; i < result.size(); i++) {
