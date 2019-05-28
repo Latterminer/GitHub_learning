@@ -48,8 +48,9 @@ public class Solution {
     }
     public boolean help(int x,TreeNode root)
     {
-        if(root==null)
+        if(root==null) {
             return true;
+        }
 
         return help(x,root.right)&&root.val==x&&help(x,root.left);
 
