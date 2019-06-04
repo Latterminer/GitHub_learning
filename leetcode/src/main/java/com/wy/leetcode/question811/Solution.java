@@ -22,34 +22,51 @@ public class Solution {
             int num = Integer.valueOf(numName[0]);
             String name = numName[1];
 
-            if (!dict.containsKey(name)) {
-                dict.put(name, num);
-            } else {
-                Integer oldValue = dict.get(name);
-                Integer newValue = oldValue + num;
-                dict.replace(name, newValue);
-            }
-
             String[] domains = name.split("\\.");
+            int len = domains.length;
+            String domain = "";
+            for (int i = len - 1; i >= 0; i--) {
+                if (i == len - 1) {
+                    domain = domains[i];
+                } else {
+                    domain = domains[i] + "." + domain;
+                }
 
-            if (!dict.containsKey(domains[1]+domains[2])) {
-                dict.put(domains[1]+domains[2], num);
-            } else {
-                Integer oldValue = dict.get(domains[1]+domains[2]);
-                Integer newValue = oldValue + num;
-                dict.replace(domains[1]+domains[2], newValue);
-            }
-
-            if (!dict.containsKey(domains[2])) {
-                dict.put(domains[2], num);
-            } else {
-                Integer oldValue = dict.get(domains[2]);
-                Integer newValue = oldValue + num;
-                dict.replace(domains[2], newValue);
+                if (!dict.containsKey(domain)) {
+                    dict.put(domain, num);
+                } else {
+                    Integer oldValue = dict.get(domain);
+                    Integer newValue = oldValue + num;
+                    dict.replace(domain, newValue);
+                }
             }
 
         }
         dict.forEach((key, value) -> result.add(value + " " + key));
+        return result;
+    }
+
+    public List<String> subdomainVisits1(String[] cpdomains) {
+        HashMap<String, Integer> visitCountMap = new HashMap<>();
+        for (String s : cpdomains) {
+            String[] splited = s.split(" ");
+            int count = Integer.valueOf(splited[0]);
+            String domain = splited[1];
+            while (true) {
+                visitCountMap.put(domain, visitCountMap.getOrDefault(domain, 0) + count);
+
+                int commaPos = domain.indexOf(".");
+                if (commaPos != -1) {
+                    domain = domain.substring(commaPos + 1);
+                } else {
+                    break;
+                }
+            }
+        }
+        ArrayList<String> result = new ArrayList<>();
+        for (String key : visitCountMap.keySet()) {
+            result.add(visitCountMap.get(key) + " " + key);
+        }
         return result;
     }
 }
