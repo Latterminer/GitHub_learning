@@ -1,6 +1,10 @@
 package com.wy.concurrent.chapter3;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -30,8 +34,37 @@ public class SetDemo {
 //        map.putIfAbsent("123", 123);
 //        Deque<String> deque = new LinkedList<>();
 //        deque.add("adb");
-        String[] temp = new String[3];
-        temp[1] = "adb";
-        System.out.println(String.join(".", temp));
+//        String[] temp = new String[3];
+//        temp[1] = "adb";
+//        System.out.println(String.join(".", temp));
+
+//        LocalDate start = LocalDate.parse("2019-01-20");
+//        LocalDate end = LocalDate.parse("2019-01-20");
+//        System.out.println(start.format(DateTimeFormatter.ofPattern("yyyy")));
+//        System.out.println(start.until(end, ChronoUnit.DAYS));
+
+//        LocalDateTime start = LocalDateTime.parse("2019-01-01 10:20:20", DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss"));
+//        LocalDateTime end = LocalDateTime.parse("2019-01-20 10:20:20", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+//        System.out.println(end.until(start, ChronoUnit.MINUTES));
+
+        HashSet<Integer> set1 = new HashSet<>();
+        set1.add(1);
+        set1.add(2);
+        HashSet<Integer> set2 = new HashSet<>();
+        set2.add(2);
+        set2.add(1);
+
+        HashSet<HashSet<Integer>> result = new HashSet<>();
+        result.add(set1);
+        result.add(set2);
+
+        System.out.println(result);
+
+        List<Integer> list = new ArrayList<>();
+
+
+
     }
+
+
 }

@@ -47,6 +47,6 @@ package com.wy.leetcode.question893;
  */
 public class Solution {
     public int numSpecialEquivGroups(String[] A) {
-
+        return 0;
     }
 }
