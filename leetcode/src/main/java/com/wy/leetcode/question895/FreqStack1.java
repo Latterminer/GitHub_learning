@@ -24,6 +24,11 @@ import java.util.Stack;
  *
  * 此后，我们仅仅需要如上所述维护 freq，group，以及 maxfreq。
  *
+ * 复杂度分析
+ *
+ * 时间复杂度：对于 push 和 pop 操作，O(1)O(1)。
+ *
+ * 空间复杂度：O(N)O(N)，其中 N 为 FreqStack 中元素的数目。
  */
 public class FreqStack1 {
     Map<Integer, Integer> freq;
