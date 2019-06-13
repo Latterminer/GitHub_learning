@@ -1,5 +1,7 @@
 package com.wy.leetcode.question899;
 
+import java.util.Arrays;
+
 /**
  * @author wy
  * @date 2019-06-13
@@ -35,4 +37,43 @@ package com.wy.leetcode.question899;
  * S 只由小写字母组成。
  */
 public class Solution {
+    /**
+     * 思路： 当K==1时， 需要对所有的情况进行遍历
+     *       当K>1时，对S按照字典顺序排序
+     *
+     * 证明: sketch_like 说的"K > 1 时， 可以生成当前字符串的任意序列"：
+     *
+     * 记循环S[0]为操作(1)，循环S[1]为操作(2) ，依次执行如下变换：
+     *
+     * (1) * N次将原S[N]移动到[0]位，
+     * (2) * M次使S[N]位于原S[(N+M+1)%len(S)]之前，
+     * 再执行 (1) * X次，以正好将原S[0]重新移动到[0]位。
+     * 由于M是任意的，因此这样一次变换可以将任意的S[N]移动到任意位置而保持其他元素相对位置不变。反复执行以上变换就可以将S变换成任意顺序。特别的，利用以上变换进行插入排序时，可以直接得到一个生成目标字符串的操作序列。
+     *
+     * @param S
+     * @param K
+     * @return
+     */
+    public static String orderlyQueue(String S, int K) {
+        String min = S;
+        if (K == 1) {
+            String sb = S;
+            for (int i = 0; i < S.length(); i++) {
+                int compare = min.compareTo(sb);
+                if (compare > 0) {
+                    min = sb;
+                }
+                sb = sb.substring(1) + sb.charAt(0);
+            }
+        } else {
+            char[] chars = S.toCharArray();
+            Arrays.sort(chars);
+            min = String.valueOf(chars);
+        }
+        return min;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(orderlyQueue("cba", 1));
+    }
 }
