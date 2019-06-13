@@ -14,7 +14,7 @@ public class Solution {
     }
 
     /**
-     * 此方法还可以用来求出现最多次的数
+     *
      *
      * @param nums
      * @return
@@ -36,7 +36,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 2, 1, 1, 1, 2, 2};
+        int[] nums = new int[]{2, 2, 1, 1, 1, 2, 3};
         System.out.println(majorityElement1(nums));
     }
 }

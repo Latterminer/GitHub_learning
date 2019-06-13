@@ -5,11 +5,10 @@ import java.util.Arrays;
 /**
  * @author wangyong
  * @date 2019/6/12
- * @description
- * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
- *
+ * @description 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+ * <p>
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
- *
+ * <p>
  * 问总共有多少条不同的路径？
  * 输入: m = 3, n = 2
  * 输出: 3
@@ -19,13 +18,14 @@ import java.util.Arrays;
  * 2. 向右 -> 向下 -> 向右
  * 3. 向下 -> 向右 -> 向右
  * 示例 2:
- *
+ * <p>
  * 输入: m = 7, n = 3
  * 输出: 28
  */
 public class Solution {
     /**
      * 递归解法
+     *
      * @param m
      * @param n
      * @return
@@ -38,7 +38,7 @@ public class Solution {
         if (row > m || col > n) {
             return 0;
         }
-        if (row == m-1 && col == n-1) {
+        if (row == m - 1 && col == n - 1) {
             return 1;
         }
         return findPath(row + 1, col, m, n) + findPath(row, col + 1, m, n);
@@ -46,6 +46,7 @@ public class Solution {
 
     /**
      * 动态规划解法
+     *
      * @param m
      * @param n
      * @return
@@ -67,7 +68,9 @@ public class Solution {
     }
 
     /**
-     * 优化空间复杂度
+     * 优化空间复杂度O(n)
+     * 当一行遍历结束，对于下一行来说cur数组中保存的是上一行中每个方格可以到达的次数
+     *
      * @param m
      * @param n
      * @return
