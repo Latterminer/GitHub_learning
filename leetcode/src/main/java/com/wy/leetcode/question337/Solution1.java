@@ -23,14 +23,19 @@ class Solution1 {
     }
 
     public int[] helper(TreeNode r) {
+        //边界条件，r为null时，跳出
         if (r == null) {
             return new int[2];
-        } //边界条件，r为null时，跳出
-        int[] left = helper(r.left);//对于以r.left为根的树，计算抢劫根节点(r.left)与不抢劫根节点可获得最大金额. left[0]则为不抢r.lrft可获得的最大金额,left[1]则为抢劫r.left可获得的最大金额  以下right[] 分析同理
+        }
+        //对于以r.left为根的树，计算抢劫根节点(r.left)与不抢劫根节点可获得最大金额.
+        // left[0]则为不抢r.lrft可获得的最大金额,left[1]则为抢劫r.left可获得的最大金额  以下right[] 分析同理
+        int[] left = helper(r.left);
         int[] right = helper(r.right);
         int[] res = new int[2];
-        res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);//计算不抢劫当前根节点可获得的最大金额(那么其左右子树可以随便抢)
-        res[1] = r.val + left[0] + right[0];//计算若抢劫根节点可获得的最大金额(此时,其左右子树的根节点不能被抢)
+        //计算不抢劫当前根节点可获得的最大金额(那么其左右子树可以随便抢)
+        res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        //计算若抢劫根节点可获得的最大金额(此时,其左右子树的根节点不能被抢)
+        res[1] = r.val + left[0] + right[0];
         return res;
     }
 }
