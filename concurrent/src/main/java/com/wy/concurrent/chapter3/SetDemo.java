@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author wy
@@ -47,23 +50,39 @@ public class SetDemo {
 //        LocalDateTime end = LocalDateTime.parse("2019-01-20 10:20:20", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 //        System.out.println(end.until(start, ChronoUnit.MINUTES));
 
-        HashSet<Integer> set1 = new HashSet<>();
-        set1.add(1);
-        set1.add(2);
-        HashSet<Integer> set2 = new HashSet<>();
-        set2.add(2);
-        set2.add(1);
-
-        HashSet<HashSet<Integer>> result = new HashSet<>();
-        result.add(set1);
-        result.add(set2);
-
-        System.out.println(result);
-
-        List<Integer> list = new ArrayList<>();
+//        HashSet<Integer> set1 = new HashSet<>();
+//        set1.add(1);
+//        set1.add(2);
+//        HashSet<Integer> set2 = new HashSet<>();
+//        set2.add(2);
+//        set2.add(1);
+//
+//        HashSet<HashSet<Integer>> result = new HashSet<>();
+//        result.add(set1);
+//        result.add(set2);
+//
+//        System.out.println(result);
 
 
+//        String param = null;
+//        switch (param) {
+//            case "a":
+//                System.out.println("a");
+//                break;
+//            case "b":
+//                System.out.println("b");
+//                break;
+//            default:
+//                System.out.println("false");
+//        }
+//
+//        ReentrantLock lock = new ReentrantLock();
 
+        int a= 2*32;
+        int b = 1;
+        int c = b << 6;
+        System.out.println(a);
+        System.out.println(c);
     }
 
 
