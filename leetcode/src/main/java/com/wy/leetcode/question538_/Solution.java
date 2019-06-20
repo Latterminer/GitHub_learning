@@ -23,7 +23,7 @@ public class Solution {
     private int sum = 0;
 
     /**
-     * 逆中序遍历， 右 -> 中 -> 左
+     * 逆中序遍历， 右 -> 中 -> 左， 也就是最靠左边的那个叶子是所有节点的和
      * @param root
      * @return
      */
