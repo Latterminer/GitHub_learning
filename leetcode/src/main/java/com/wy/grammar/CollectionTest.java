@@ -26,5 +26,6 @@ public class CollectionTest {
 
         map.remove("K1");
         System.out.println(map.toString());
+
     }
 }
