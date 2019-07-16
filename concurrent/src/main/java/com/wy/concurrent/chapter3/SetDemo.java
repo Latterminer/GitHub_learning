@@ -78,6 +78,7 @@ public class SetDemo {
 //
 //        ReentrantLock lock = new ReentrantLock();
 
+
         int a= 2*32;
         int b = 1;
         int c = b << 6;

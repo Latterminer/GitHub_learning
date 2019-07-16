@@ -1,5 +1,8 @@
 package com.wy.leetcode.question437;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author wangyong
  * @date 2019/6/25
@@ -31,13 +34,13 @@ package com.wy.leetcode.question437;
  */
 public class Solution {
     public int pathSum(TreeNode root, int sum) {
-        int result  =0;
+        int result = 0;
         if (root == null) {
             return result;
         }
         result += findPath(root, sum);
         result += pathSum(root.left, sum);
-        result += pathSum(root.right,sum);
+        result += pathSum(root.right, sum);
         return result;
     }
 
@@ -47,11 +50,43 @@ public class Solution {
             return result;
         }
         if (root.val == sum) {
-            result +=1;
+            result += 1;
         }
-        result += findPath(root.left, sum-root.val);
+        result += findPath(root.left, sum - root.val);
         result += findPath(root.right, sum - root.val);
         return result;
+    }
+
+    /**
+     * 高手的解法，利用hashmap缓存一些节点的值
+     *
+     * @param root
+     * @param sum
+     * @return
+     */
+    public int pathSum1(TreeNode root, int sum) {
+        Map<Integer, Integer> map = new HashMap();
+        map.put(0, 1);
+        return helper(root, sum, 0, map);
+    }
+
+    public int helper(TreeNode root, int sum, int curSum, Map<Integer, Integer> map) {
+        if (root == null) {
+            return 0;
+        }
+        curSum += root.val;
+        int cur = 0;
+        if (map.containsKey(curSum - sum)) {
+            cur = map.get(curSum - sum);
+        }
+        if (!map.containsKey(curSum)) {
+            map.put(curSum, 1);
+        } else {
+            map.put(curSum, map.get(curSum) + 1);
+        }
+        int res = cur + helper(root.left, sum, curSum, map) + helper(root.right, sum, curSum, map);
+        map.put(curSum, map.get(curSum) - 1);
+        return res;
     }
 }
 
