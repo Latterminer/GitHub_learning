@@ -1,4 +1,4 @@
-package com.wy.jvm;
+package com.wy.jvm.daily;
 
 /**
  * @author wy

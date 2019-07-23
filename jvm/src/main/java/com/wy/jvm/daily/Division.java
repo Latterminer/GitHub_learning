@@ -1,4 +1,4 @@
-package com.wy.jvm;
+package com.wy.jvm.daily;
 
 /**
  * @author wy
@@ -18,8 +18,16 @@ public class Division {
             = 24L * 60 * 60 * 1000 * 1000;
 
     public static void main(String[] args) {
-        System.out.println(Long.toBinaryString(MICROS_PER_DAY));
-        //下一句的输出是5，而不是1000
-        System.out.println(MICROS_PER_DAY / MILLIS_PER_DAY);
+//        System.out.println(Long.toBinaryString(MICROS_PER_DAY));
+//        //下一句的输出是5，而不是1000
+//        System.out.println(MICROS_PER_DAY / MILLIS_PER_DAY);
+        Runnable runnable = new Runnable() {
+            public void run() {
+                System.out.println("1");
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+        thread.start();
     }
 }
