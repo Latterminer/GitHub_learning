@@ -8,7 +8,7 @@
 -- | student | class      |
 -- +---------+------------+
 -- | A       | Math       |
--- | B       | English    |
+-- | TestExecutionOrder       | English    |
 -- | C       | Math       |
 -- | D       | Biology    |
 -- | E       | Math       |

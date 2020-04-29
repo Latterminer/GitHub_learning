@@ -1,4 +1,4 @@
-package com.wy.GongsiZhenti;
+package com.wy.company;
 
 import java.util.Arrays;
 import java.util.Collections;

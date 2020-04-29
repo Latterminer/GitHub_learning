@@ -4,11 +4,13 @@ package com.wy.jvm.daily;
  * @author wy
  * @date 2019-07-23
  * @description 不管是匿名内置类还是lambda表达式都不能去依赖外部类的成员，否则会循环等待，
- *  lambda是dynamic机制，依赖当前类来加载，所以不能执行
+ * lambda是dynamic机制，依赖外部类来加载，所以不能执行;
+ * 加载的外部类和当前类在类初始化阶段不能有相互依赖，否则相互等待
  */
 public class Lazy {
 
     private static boolean initialized = false;
+
     // Lazy static模块执行时（类不完全初始化），Runnable匿名内置类随之初始化
     //
     static {

@@ -6,4 +6,8 @@ package com.wy.grammar;
  * @description
  */
 public class TestNestedClass {
+    public static void main(String[] args) {
+        OuterClass outerClass = new OuterClass();
+        final OuterClass.InnerClass innerClass = outerClass.new InnerClass();
+    }
 }
