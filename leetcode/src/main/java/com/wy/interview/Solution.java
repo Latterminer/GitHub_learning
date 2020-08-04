@@ -1,6 +1,6 @@
 package com.wy.interview;
 
-//class Solution {
+//class LRUCache {
 //    public static int solution(int n) {
 //        int[] d = new int[30];
 //        int l = 0;

@@ -11,9 +11,13 @@ import java.util.List;
 public class DumpTest {
     public static void main(String[] args) {
         List<String> stringList = new ArrayList<>();
-        int i = 0;
-        while (true) {
-            stringList.add(String.valueOf(i++));
+        try {
+            int i = 0;
+            while (true) {
+                stringList.add(String.valueOf(i++));
+            }
+        } catch (OutOfMemoryError error) {
+            System.out.println("捉到没");
         }
     }
 }

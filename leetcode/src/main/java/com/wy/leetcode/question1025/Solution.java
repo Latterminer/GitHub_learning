@@ -57,7 +57,7 @@ public class Solution {
      * 将所有的小于等于N的解都找出来，基于前面的，递推后面的。
      *
      * 状态转移: 如果i的约数里面有存在为False的（即输掉的情况），则当前i应为True；如果没有，则为False。
-     * class Solution:
+     * class LRUCache:
      *     def divisorGame(self, N: int) -> bool:
      *         target = [0 for i in range(N+1)]
      *         target[1] = 0 #若爱丽丝抽到1，则爱丽丝输
