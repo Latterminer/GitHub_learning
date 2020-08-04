@@ -19,9 +19,11 @@ public class NioDemo {
     private static String url = "/Users/wy/workspace/temp";
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        String result = "dfsdfsf" + null;
+        System.out.println(result);
 //        treePath();
 //        listenPathFile();
-        changeFileAttribute();
+//        changeFileAttribute();
     }
 
 
